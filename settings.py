@@ -14,7 +14,7 @@
 
 # Django settings for google-app-engine-django project.
 
-from config import *
+from myconfig import *
 import os
 import sys
 
