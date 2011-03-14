@@ -38,9 +38,10 @@ def list_all_post(request):
             paginate_by=settings.POST_LIST_PAGE_SIZE)      
     
 def list_post(request):
-    posts = Post.all().order('-create_time')
     if (not is_admin()):
-        posts = posts.filter("is_published", True)  
+        posts = posts.filter("is_published", True).order('-create_time');
+    else:
+        posts = Post.all().order('-create_time');
     return object_list(request, queryset=posts, allow_empty=True,
             template_name='list_post.html', extra_context={'is_author': is_author()},
             paginate_by=settings.POST_LIST_PAGE_SIZE)  
