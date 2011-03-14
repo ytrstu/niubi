@@ -9,7 +9,7 @@ from django.shortcuts import render_to_response
 from google.appengine.ext import db
 from google.appengine.api import users
 
-from common.views import object_list
+from common.views.utils import object_list
 from common.auth import login_required
 
 from models import UserSettings

@@ -9,7 +9,7 @@ from google.appengine.api import users
 from google.appengine.api import mail
 from common.auth import *
 from common.models import RequestLogger
-from common.views import object_list
+from common.views.utils import object_list
 from models import Post, Comment, Category, Tag
 from forms import PostForm, CommentForm
 

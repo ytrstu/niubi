@@ -32,8 +32,9 @@
         </div>
     </div>            
     <div class="post_content">
-        {{ post.content|markdown }}
+        {{ post.content|safe }}
     </div>
+    <hr/>
     <div class="post_footer">
         <div class="info">
             <a href="mailto:{{post.author.email}}">{{ post.author.nickname }}</a> 写于 {{ post.create_time|date:"Y-M-d H:i" }}
