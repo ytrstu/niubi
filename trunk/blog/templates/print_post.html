@@ -33,9 +33,10 @@
 		<hr/>
 	</div>   
 	<div>
-		{{ post.content|markdown }}
+		{{ post.content|safe }}
 	</div>
-	<div class="post_footer" style="margin-top: 30px;">
+	<hr/>
+	<div class="post_footer">
 		<div class="info">
 			{{ post.author.nickname }} 写于 {{ post.create_time|date:"Y-M-d H:i" }}
 		</div>              
