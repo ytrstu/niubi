@@ -11,7 +11,7 @@
         <link rel="alternate" type="application/rss+xml" title="FeedBurner" href="http://feeds.feedburner.com/niubi" />
         <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon" />
         <link rel="icon" href="/static/images/animated_favicon.gif" type="image/gif" />
-        <!--<link rel="stylesheet" type="text/css" href="/static/css/main.css" />-->
+        <!--<link rel="stylesheet" type="text/css" href="/static/css/main.css" />-->  
 	<link rel="stylesheet" type="text/css" href="/static/css/core/base.css" />
 	<link rel="stylesheet" type="text/css" href="/static/css/navigation/nav_shinybuttons.css" />
 	<link rel="stylesheet" type="text/css" href="/static/css/screen/basemod_shinybuttons.css" />	
@@ -31,7 +31,8 @@
 	<link rel="stylesheet" type="text/css" href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css" />
 	<link rel="stylesheet" type="text/css" href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" />
         <link rel="stylesheet" type="text/css" href="http://www.google.com/uds/css/gsearch.css" />
-        {% block css %}{% endblock %}       
+        {% block css %}{% endblock %}  
+        {% block js_in_head %}{% endblock %}               
     </head>
     <body class="yui-skin-sam">
         <div id="page_margins">
@@ -68,6 +69,7 @@
                           <li onclick="setCurrent(this)"><a href="#">影像</a></li>
                           <li onclick="setCurrent(this);setContent('col3_content','/download/');"><a href="#">下载</a></li>
                           <li onclick="setCurrent(this);setContent('col3_content','/about/');"><a href="#">关于</a></li>
+                          <li onclick="setCurrent(this)"><a href="/timeline/">事件</a></li>
                         </ul>
                     </div>
                 </div>

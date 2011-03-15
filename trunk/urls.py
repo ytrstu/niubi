@@ -46,6 +46,8 @@ urlpatterns = patterns('',
     (r'^$', 'blog.views.list_post'),
     (r'update/$', 'blog.views.update'),
     (r'^about/$', 'blog.views.about'),
+    (r'^timeline/$', 'blog.views.timeline'),
+    (r'^events/$', 'blog.views.events'),        
     (r'^download/$', 'blog.views.download'),
     
     (r'^account/setting/$', 'account.views.setting'),

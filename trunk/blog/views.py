@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect, Http404
 from django.http import HttpResponse
 from django.template.context import RequestContext
 from django.shortcuts import render_to_response
+from django.utils import simplejson
 from google.appengine.api import users
 from google.appengine.api import mail
 from common.auth import *
@@ -169,6 +170,31 @@ def about(request):
     return HttpResponse(str, content_type='text/plain')
     #return render_to_response('about.html', context_instance=RequestContext(request))
 
+def timeline(request):
+    return render_to_response('timeline.html', context_instance=RequestContext(request))
+
+def events(request):
+    events = { 
+        'wiki-url':"http://simile.mit.edu/shelf/", 
+        'wiki-section':"Simile JFK Timeline", 
+        'dateTimeFormat': 'Gregorian',
+        'events': [
+            {
+             'start':"Wed July 30 2008 00:00:00 GMT-0600",
+             'title':"Niubi.de 上线",
+             'description':"This project try to provide a web framework with highly pluggable and reusable components and applications which running on google appengine to benefit from the power of cloud computing.",
+             'durationEvent':False
+             }
+            ,{
+            'start':"Mon April 07 2008 00:00:00 GMT-0600",
+            'durationEvent':False,
+            'title':"Google App Engine 发布",
+            'description':"Google App Engine is cloud computing technology. It virtualizes applications across multiple servers and data centers.[1] Other cloud-based platforms include offerings such as Amazon Web Services and Microsoft's Azure Services Platform. App Engine differs from services like Amazon Web Services, though, in that AWS is Infrastructure as a Service while App Engine is Platform as a Service."
+            } 
+        ]
+    }
+    return HttpResponse(simplejson.dumps(events), mimetype="application/json")
+    
 def download(request):
     str = (u'<br/><p>&nbsp;&nbsp;项目源代码：<a href="http://code.google.com/p/niubi/" target="_blank">http://code.google.com/p/niubi</a></p>').encode('utf8')
     return HttpResponse(str, content_type='text/plain')
